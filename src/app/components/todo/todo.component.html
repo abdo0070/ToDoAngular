@@ -1,0 +1,30 @@
+<div class="w-ful mt-8 flex align-middle flex-col">
+    <h2 class="font-serif text-2xl font-semibold text-center">TO-DO LIST</h2>
+    <form class="w-8/12 mt-2 mx-auto p-2" (submit)="addNewTask()">
+        <input type="text" name="newTask" class="w-10/12 p-1" placeholder="EnterTask" [(ngModel)]="newTask">
+        <button type="submit"
+            class="p-1 font-semibold text-white bg-green-400 rounded-md hover:bg-green-500 cursor-pointer">New
+            Task</button>
+    </form>
+    <div class="container mx-auto p-4">
+        <!-- Table Container -->
+        <table class="min-w-full table-auto border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Task</th>
+                    <th class="px-4 py-2 text-left font-semibold text-gray-700">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="border-t" *ngFor="let task of todoLists ; let i = index">
+                    <td class="px-4 py-2 text-gray-800">{{task}}</td>
+                    <td class="px-4 py-2">
+                        <button class="bg-red-500 text-white p-1 rounded-sm hover:text-red-700 font-semibold"
+                            (click)="deleteTask(i)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
